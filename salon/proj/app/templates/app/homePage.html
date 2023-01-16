@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>WELCOME TO SALON BOOKING</h1>
+    <hr>
+    <br>
+    {% if request.user.is_authenticated %}
+    Hello  : {{request.user.email}}
+    <h1 class="text-center">Please click on home to book an appointment</h1>
+    {% include 'app/product_list.html' %}
+
+    <br />
+    <br /> 
+    <a href="{% url 'logout' %}"> Logout </a>
+    <br />
+    {% else %}
+    <a href="{% url 'login-user' %}"> Login </a>
+    <a href="{% url 'register' %}"> Register </a>
+    
+    {% endif %}
+    <hr>
+  </body>
+</html> 
